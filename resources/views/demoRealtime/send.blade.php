@@ -8,13 +8,13 @@
             </ul>
         </div>
     @endif
-    <form action="{{route('postMessage')}}" method="post">
+    <form action="" method="post">
         @csrf
         <label for="fname">Title</label>
         <input type="text" id="title" name="title" placeholder="Your Title..">
 
         <label for="subject">Content</label>
-        <textarea id="content" name="content" placeholder="Write something.." style="height:200px"></textarea>
+        <textarea id="content" name="message" placeholder="Write something.." style="height:200px"></textarea>
 
         <input type="submit" value="Submit">
 

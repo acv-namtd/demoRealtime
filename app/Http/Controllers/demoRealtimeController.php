@@ -13,15 +13,15 @@ class demoRealtimeController extends Controller
     }
     public function send()
     {
-    	return view("demoRealtime.index");
+    	return view("demoRealtime.send");
     }
     public function sendMessage(Request $request)
     {
-    	$data = stdClass();
+    	$data = new \stdClass();
     	$data->title = $request->title;
     	$data->message = $request->message;
     	$options = array(
-            'cluster' => 'mt1',
+            'cluster' => 'ap1',
             'encrypted' => true
         );
         $pusher = new Pusher(

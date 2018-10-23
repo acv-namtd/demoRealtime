@@ -19,6 +19,8 @@ class demoRealtime
      *
      * @return void
      */
+    public $title;
+    public $message;
     public function __construct($data)
     {   
         $this->title = $data->title;

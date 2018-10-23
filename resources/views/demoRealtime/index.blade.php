@@ -69,15 +69,15 @@
      Pusher.logToConsole = true;
 
     var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
-        cluster: 'mt1',
+        cluster: 'ap1',
         encrypted: true
     });
 
     // Subscribe to the channel we specified in our Laravel Event
-    var channel = pusher.subscribe('Notify');
+    var channel = pusher.subscribe('demoRealtime');
 
     // Bind a function to a Event (the full Laravel class)
-    channel.bind('send-message', function(data) {
+    channel.bind('demoRealtime', function(data) {
         var existingNotifications = notifications.html();
         var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
         var newNotificationHtml = `
@@ -90,7 +90,7 @@
                 </div>
                 <div class="media-body">
                   <strong class="notification-title">`+data.title+`</strong>
-                  <p class="notification-desc">`+data.content+`</p>
+                  <p class="notification-desc">`+data.message+`</p>
                   <div class="notification-meta">
                     <small class="timestamp">about a minute ago</small>
                   </div>
